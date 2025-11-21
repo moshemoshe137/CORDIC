@@ -1,6 +1,6 @@
 """Higher math functions. Efficient but unusable for CORDIC directly."""
 
-from .cordic_funcs import is_even, is_odd, sgn
+from .cordic_funcs import is_even, is_nan, is_odd, sgn
 
 
 def basic_pow(base: float, exponent: int) -> float:
@@ -27,4 +27,4 @@ def factorial(n: int) -> int:
     return result
 
 
-__all__ = ["basic_pow", "factorial", "is_even", "is_odd", "sgn"]
+__all__ = ["basic_pow", "factorial", "is_even", "is_nan", "is_odd", "sgn"]
