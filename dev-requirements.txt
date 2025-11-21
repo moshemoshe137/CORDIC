@@ -40,9 +40,13 @@ cfgv==3.5.0
 charset-normalizer==3.4.4
     # via requests
 colorama==0.4.6
-    # via ipython
+    # via
+    #   ipython
+    #   pytest
 comm==0.2.3
     # via ipykernel
+coverage==7.12.0
+    # via pytest-cov
 debugpy==1.8.17
     # via ipykernel
 decorator==5.2.1
@@ -79,6 +83,8 @@ idna==3.11
     #   httpx
     #   jsonschema
     #   requests
+iniconfig==2.3.0
+    # via pytest
 ipykernel==7.1.0
     # via jupyterlab
 ipython==9.7.0
@@ -186,6 +192,7 @@ packaging==25.0
     #   jupyterlab
     #   jupyterlab-server
     #   nbconvert
+    #   pytest
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.5
@@ -196,6 +203,10 @@ platformdirs==4.5.0
     # via
     #   jupyter-core
     #   virtualenv
+pluggy==1.6.0
+    # via
+    #   pytest
+    #   pytest-cov
 pre-commit==4.4.0
     # via CORDIC (pyproject.toml)
 prometheus-client==0.23.1
@@ -217,6 +228,16 @@ pygments==2.19.2
     #   ipython
     #   ipython-pygments-lexers
     #   nbconvert
+    #   pytest
+pytest==9.0.1
+    # via
+    #   CORDIC (pyproject.toml)
+    #   pytest-cov
+    #   pytest-random-order
+pytest-cov==7.0.0
+    # via CORDIC (pyproject.toml)
+pytest-random-order==1.2.0
+    # via CORDIC (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
     #   arrow

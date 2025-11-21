@@ -1,6 +1,6 @@
 """Series expansions for pre-computed arctangents."""
 
-from .math import basic_pow, factorial, is_even
+from .higher_math import basic_pow, factorial, is_even
 
 
 def arctan_taylor_term(*, n: int, z: float) -> float:
