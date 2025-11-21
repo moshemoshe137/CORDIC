@@ -62,7 +62,6 @@ ignore = [
     "ISC001", # Conflicts with `ruff format` and raises a warning.
     "PD010",  # These `PD` rules are just outright wrong.
     "PD015",  # These `PD` rules are just outright wrong.
-    "PD901",  # Avoid using the generic variable name `df` for DataFrames.
     "T20",    # Allow `print` statements.
     "RET",    # Allow return statements without an expression.
     "ANN002", # Checks that function `*args` arguments have type annotations.
