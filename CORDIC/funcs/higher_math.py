@@ -1,3 +1,5 @@
+"""Higher math functions. Efficient but unusable for CORDIC directly."""
+
 from .cordic_funcs import is_even, is_odd, sgn
 
 

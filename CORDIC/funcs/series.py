@@ -1,3 +1,5 @@
+"""Series expansions for pre-computed arctangents."""
+
 from .math import basic_pow, factorial, is_even
 
 
@@ -13,6 +15,7 @@ def arctan_taylor_term(*, n: int, z: float) -> float:
 
 
 def arctan_from_taylor_series(z: float, *, prec: float = 1e-6) -> float:
+    """Compute arctan(z) using its Taylor series expansion."""
     n = 0
     total = 0.0
     taylor_term = arctan_taylor_term(n=n, z=z)
@@ -24,7 +27,7 @@ def arctan_from_taylor_series(z: float, *, prec: float = 1e-6) -> float:
 
 
 def arctan_euler_accelerated_term(*, n: int, z: float) -> float:
-    """Foo."""
+    """Nth term of the Euler-accelerated arctangent series for `z`."""
     # \arctan(z) = \sum_{n=0}^\infty \frac{2^{2n} (n!)^2}{(2n + 1)!} \frac{z^{2n + 1}}{(1 + z^2)^{n + 1}}  # noqa: E501
     # https://en.wikipedia.org/w/index.php?title=Arctangent_series&oldid=1310174733#:~:text=Euler%27s%20formula%20above%20can%20be%20simplified%20and%20expressed%20as%5B6%5D
     numerator = (
@@ -35,7 +38,7 @@ def arctan_euler_accelerated_term(*, n: int, z: float) -> float:
 
 
 def arctan_euler_accelerated(z: float, *, prec: float = 1e-6) -> float:
-    """Bar."""
+    """Compute arctan(z) using Euler-accelerated series expansion."""
     n = 0
     total = 0.0
     series_term = arctan_euler_accelerated_term(n=0, z=z)

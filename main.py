@@ -1,3 +1,5 @@
+"""Main module to test CORDIC functions."""
+
 if __name__ == "__main__":
     from CORDIC.funcs.math import factorial, is_even, is_odd
 
