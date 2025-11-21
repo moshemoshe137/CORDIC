@@ -1,5 +1,15 @@
 """Mathematical functions using CORDIC algorithm."""
 
+from numbers import Number
+
+
+def is_nan(x: float) -> bool:
+    """Check if a number is NaN."""
+    if not isinstance(x, Number):
+        msg = "Argument must be numeric."
+        raise TypeError(msg)
+    return x != x  # NaN is not equal to itself  # noqa: PLR0124
+
 
 def is_even(x: int) -> bool:
     """Check if a number is even."""
@@ -19,4 +29,4 @@ def sgn(x: float) -> int:
     return 1 if x >= 0 else -1
 
 
-__all__ = ["is_even", "is_odd", "sgn"]
+__all__ = ["is_even", "is_nan", "is_odd", "sgn"]

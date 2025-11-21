@@ -1,10 +1,12 @@
 """Test functions in the CORDIC module."""
 
+import math
 from collections.abc import Callable
+from typing import Any
 
 import pytest
 
-from CORDIC.funcs.cordic_funcs import is_even, is_odd, sgn
+from CORDIC.funcs.cordic_funcs import is_even, is_nan, is_odd, sgn
 
 # even_odd_integers_param =
 
@@ -79,3 +81,55 @@ class TestSgn:
     def test_sgn(self, input_value: float, expected: int) -> None:
         """Test the sgn function."""
         assert sgn(input_value) == expected
+
+
+class TestIsNaN:
+    """Test the is_nan function."""
+
+    @pytest.mark.parametrize(
+        "nan_value",
+        [
+            float("nan"),
+            float("-nan"),
+            -float("nan"),
+            1 + float("nan"),
+            1 - float("nan"),
+            float("nan") / 2,
+            float("nan") * 0,
+        ],
+    )
+    def test_nan_values(self, nan_value: float) -> None:
+        """Test is_nan with NaN values."""
+        assert is_nan(nan_value)
+        assert math.isnan(nan_value)
+
+    @pytest.mark.parametrize(
+        "non_nan_value",
+        [0.0, -0.0, 1.0, -1.0, float("inf"), float("-inf"), 42, -42, 1e10, 1e-42],
+    )
+    def test_non_nan_values(self, non_nan_value: float) -> None:
+        """Test is_nan with non-NaN values."""
+        assert not is_nan(non_nan_value)
+        assert not math.isnan(non_nan_value)
+
+    @pytest.mark.parametrize(
+        "non_numeric_value",
+        [
+            "string",
+            None,
+            pytest.param([], id="empty_list"),
+            pytest.param({}, id="empty_dict"),
+            pytest.param((1, 2), id="tuple"),
+            pytest.param(object(), id="object"),
+        ],
+    )
+    def test_non_numeric_values(self, non_numeric_value: Any) -> None:
+        """Test is_nan with non-numeric values."""
+        with pytest.raises(TypeError, match=r"Argument must be numeric\."):
+            is_nan(non_numeric_value)
+
+        non_numeric_value_type = type(non_numeric_value).__name__
+        with pytest.raises(
+            TypeError, match=f"must be real number, not {non_numeric_value_type}"
+        ):
+            math.isnan(non_numeric_value)
