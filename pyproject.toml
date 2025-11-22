@@ -4,7 +4,7 @@ description = "A Python implementation of CORDIC algorithms."
 version = "0.0.0"
 authors = [{ name = "Moshe Rubin", email = "mosherubin137@gmail.com" }]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 
 [project.optional-dependencies]
 dev = ["flake8", "flake8-pyproject", "mypy", "notebook", "pre-commit", "ruff"]
