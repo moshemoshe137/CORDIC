@@ -1,4 +1,4 @@
-name: Tox Pytest Tests - All OSes - Python 3.10, 3.11, 3.12, 3.13
+name: Pre-Commit Tests - All OSes - Python 3.10, 3.11, 3.12, 3.13
 
 on:
   push: # Trigger on any push
@@ -10,7 +10,7 @@ on:
 jobs:
   tox-tests:
     name: >
-      pytest - Python ${{ matrix.python-version }} on ${{ matrix.os }}
+      pre-commit - Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false # Don't halt when one test fails
@@ -29,10 +29,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools tox
+          python -m pip install --upgrade pip setuptools pre-commit
           python -m pip install --editable .
 
-      - name: Run tests with tox
-        run: >
-          tox -e "py${{ matrix.python-version }}-pytest" -- --verbose --durations=100
-          -n=auto
+      - name: "`pre-commit` checks"
+        run: pre-commit run --all-files --show-diff-on-failure
