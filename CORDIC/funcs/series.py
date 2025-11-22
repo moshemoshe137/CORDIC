@@ -19,7 +19,7 @@ def arctan_from_taylor_series(z: float, *, prec: float = 1e-6) -> float:
     n = 0
     total = 0.0
     taylor_term = arctan_taylor_term(n=n, z=z)
-    while abs(taylor_term) > prec:
+    while abs(taylor_term) > prec / 100:
         total += taylor_term
         n += 1
         taylor_term = arctan_taylor_term(n=n, z=z)
@@ -42,7 +42,7 @@ def arctan_euler_accelerated(z: float, *, prec: float = 1e-6) -> float:
     n = 0
     total = 0.0
     series_term = arctan_euler_accelerated_term(n=0, z=z)
-    while abs(series_term) > prec:
+    while abs(series_term) > prec / 100:
         total += series_term
         n += 1
         series_term = arctan_euler_accelerated_term(n=n, z=z)
