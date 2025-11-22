@@ -78,11 +78,6 @@ repos:
         -   "--prose-wrap=always"
         types: [markdown]
 
--   repo: https://github.com/moshemoshe137/prettier-markdown-jupyter
-    rev: 0.1.0
-    hooks:
-    -   id: format-markdown-notebook
-
 -   repo: https://github.com/jsh9/pydoclint
     rev: 0.8.1
     hooks:
