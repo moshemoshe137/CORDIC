@@ -33,14 +33,17 @@ jobs:
     strategy:
       fail-fast: false # Don't halt when one test fails
       matrix:
-        python-version: ["3.13"]
         os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python (all versions)
         uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: |
+            3.10
+            3.11
+            3.12
+            3.13
           cache: "pip" # cache pip dependencies
       - name: Install dependencies
         run: |
