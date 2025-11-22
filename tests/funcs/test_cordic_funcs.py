@@ -8,8 +8,6 @@ import pytest
 
 from CORDIC.funcs.cordic_funcs import is_even, is_nan, is_odd, sgn
 
-# even_odd_integers_param =
-
 
 @pytest.mark.parametrize("func", [is_even, is_odd])
 class TestIsEvenOdd:
@@ -35,7 +33,7 @@ class TestIsEvenOdd:
             assert func(input_int) == expected
         elif func.__name__ == "is_odd":
             assert func(input_int) == (not expected)
-        else:
+        else:  # pragma: no cover
             msg = f"Invalid function {func.__name__} provided to test."
             raise ValueError(msg)
 
