@@ -41,5 +41,4 @@ jobs:
 
       - name: "`pre-commit` checks"
         if: matrix.test == 'pre-commit'
-        # Better to use the official pre-commit action for better caching.
-        uses: pre-commit/action@v3.0.1
+        run: pre-commit run --all-files --show-diff-on-failure
