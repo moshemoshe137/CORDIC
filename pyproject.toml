@@ -9,7 +9,7 @@ requires-python = ">=3.10"
 [project.optional-dependencies]
 dev = ["flake8", "flake8-pyproject", "mypy", "notebook", "pre-commit", "ruff"]
 
-testing = ["pytest", "pytest-cov", "pytest-random-order"]
+testing = ["pytest", "pytest-cov", "pytest-random-order", "pytest-xdist"]
 
 [build-system]
 requires = ["hatchling"]
