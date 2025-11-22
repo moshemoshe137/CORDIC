@@ -55,7 +55,7 @@ addopts = """
 --cov=tests
 """
 minversion = "8.0"
-required_plugins = "pytest-random-order pytest-cov"
+required_plugins = "pytest-random-order pytest-cov pytest-xdist"
 xfail_strict = true
 
 [tool.ruff]
