@@ -8,26 +8,6 @@ on:
     - cron: "0 7 * * MON"
 
 jobs:
-  # pre-commit:
-  #   runs-on: ${{ matrix.os }}
-  #   strategy:
-  #     fail-fast: false # Don't halt when one test fails
-  #     matrix:
-  #       python-version: ["3.10", "3.11", "3.12", "3.13"] # Sync with line 36
-  #       os: [windows-latest, ubuntu-latest, macos-latest] # Sync with line 37
-  #   steps:
-  #     - uses: actions/checkout@v6
-  #     - uses: actions/setup-python@v6
-  #       with:
-  #         python-version: ${{ matrix.python-version }}
-  #         cache: "pip" # cache pip dependencies
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip setuptools pre-commit
-  #         python -m pip install --editable .
-  #     - name: "`pre-commit` checks"
-  #       run: pre-commit run --all-files --show-diff-on-failure
-
   tox:
     runs-on: ${{ matrix.os }}
     strategy:
