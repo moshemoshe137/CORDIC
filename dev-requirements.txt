@@ -55,6 +55,8 @@ defusedxml==0.7.1
     # via nbconvert
 distlib==0.4.0
     # via virtualenv
+execnet==2.1.2
+    # via pytest-xdist
 executing==2.2.1
     # via stack-data
 fastjsonschema==2.21.2
@@ -234,9 +236,12 @@ pytest==9.0.1
     #   CORDIC (pyproject.toml)
     #   pytest-cov
     #   pytest-random-order
+    #   pytest-xdist
 pytest-cov==7.0.0
     # via CORDIC (pyproject.toml)
 pytest-random-order==1.2.0
+    # via CORDIC (pyproject.toml)
+pytest-xdist==3.8.0
     # via CORDIC (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
