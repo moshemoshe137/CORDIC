@@ -47,3 +47,11 @@ def arctan_euler_accelerated(z: float, *, prec: float = 1e-6) -> float:
         n += 1
         series_term = arctan_euler_accelerated_term(n=n, z=z)
     return total
+
+
+__all__ = [
+    "arctan_euler_accelerated",
+    "arctan_euler_accelerated_term",
+    "arctan_from_taylor_series",
+    "arctan_taylor_term",
+]
